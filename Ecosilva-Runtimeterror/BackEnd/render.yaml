@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: ecosilva-backend
+    runtime: python
+    region: frankfurt
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        value: https://bemkjnwuidehisgcgdte.supabase.co
+      - key: SUPABASE_ANON_KEY
+        value: sb_publishable_sCCJlzqKk37RmEaH5IDqyA_lKy5zSRB
+      - key: SUPABASE_PUBLISHABLE_KEY
+        value: sb_publishable_sCCJlzqKk37RmEaH5IDqyA_lKy5zSRB
+      - key: GEMINI_API_KEY
+        value: AIzaSyCC-tQhEYJIBeu2AoEyL9l7T93fcN3kqOo
+      - key: SECRET_KEY
+        value: ecosilva-prod-secret-2024
+      - key: ENVIRONMENT
+        value: production
+      - key: CORS_ORIGINS
+        value: '["https://ecosilva-forestguard.web.app","https://ecosilva-forestguard.firebaseapp.com","http://localhost:3000"]'
